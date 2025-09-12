@@ -29,6 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 import { authRoutes } from './api/auth/auth.routes.js'
 import { userRoutes } from './api/user/user.routes.js'
 import { toyRoutes } from './api/toys/toy.routes.js'
+import { toyService } from './api/toys/toy.service.js'
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
@@ -41,4 +42,5 @@ app.get('/*all', (req, res) => {
 const port = process.env.PORT || 3030
 app.listen(port, () => {
     loggerService.info(`Server listening on port http://127.0.0.1:${port}/`)
+    toyService.connectAndSetup()
 })

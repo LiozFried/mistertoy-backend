@@ -14,6 +14,7 @@ export const toyService = {
     update,
     addMsg,
     removeMsg,
+    connectAndSetup,
 }
 
 async function query(filterBy = {}) {
@@ -141,4 +142,108 @@ function _buildCriteria(filterBy) {
     const skip = filterBy.pageIdx !== undefined ? filterBy.pageIdx * PAGE_SIZE : 0
 
     return { filterCriteria, sortCriteria, skip }
+}
+
+const demoToysData = [
+    {
+        "name": "Remote Control Car",
+        "imgUrl": "https://images.pexels.com/photos/29082154/pexels-photo-29082154.jpeg",
+        "price": 45,
+        "labels": ["On wheels", "Battery Powered"],
+        "createdAt": 1631031801011,
+        "inStock": true
+    },
+    {
+        "name": "Chess Set",
+        "imgUrl": "https://images.pexels.com/photos/6598772/pexels-photo-6598772.jpeg",
+        "price": 25,
+        "labels": ["Box game", "Art"],
+        "createdAt": 1642145678900,
+        "inStock": true
+    },
+    {
+        "name": "Baby Mobile",
+        "imgUrl": "https://images.pexels.com/photos/11369154/pexels-photo-11369154.jpeg",
+        "price": 30,
+        "labels": ["Baby", "Art"],
+        "createdAt": 1653259876543,
+        "inStock": true
+    },
+    {
+        "name": "Building Blocks",
+        "imgUrl": "https://images.pexels.com/photos/1148496/pexels-photo-1148496.jpeg",
+        "price": 20,
+        "labels": ["Puzzle", "Outdoor"],
+        "createdAt": 1664374567890,
+        "inStock": false
+    },
+    {
+        "name": "Toy Robot",
+        "imgUrl": "https://images.pexels.com/photos/8294651/pexels-photo-8294651.jpeg",
+        "price": 75,
+        "labels": ["Battery Powered", "On wheels"],
+        "createdAt": 1675489876543,
+        "inStock": true
+    },
+    {
+        "name": "Wooden Dollhouse",
+        "imgUrl": "https://images.pexels.com/photos/191360/pexels-photo-191360.jpeg",
+        "price": 90,
+        "labels": ["Doll", "Art"],
+        "createdAt": 1686604567890,
+        "inStock": false
+    },
+    {
+        "name": "Jigsaw Puzzle",
+        "imgUrl": "https://images.pexels.com/photos/3482442/pexels-photo-3482442.jpeg",
+        "price": 15,
+        "labels": ["Puzzle", "Box game"],
+        "createdAt": 1697718901234,
+        "inStock": true
+    },
+    {
+        "name": "Tricycle",
+        "imgUrl": "https://images.pexels.com/photos/1230751/pexels-photo-1230751.jpeg",
+        "price": 55,
+        "labels": ["Outdoor", "On wheels", "Baby"],
+        "createdAt": 1708834567890,
+        "inStock": true
+    },
+    {
+        "name": "Action Figure",
+        "imgUrl": "https://images.pexels.com/photos/7829101/pexels-photo-7829101.jpeg",
+        "price": 28,
+        "labels": ["Doll", "Art"],
+        "createdAt": 1719949876543,
+        "inStock": false
+    },
+    {
+        "name": "Electronic Drum Set",
+        "imgUrl": "https://images.pexels.com/photos/258668/pexels-photo-258668.jpeg",
+        "price": 110,
+        "labels": ["Battery Powered", "Art"],
+        "createdAt": 1731064567890,
+        "inStock": true
+    }
+]
+
+async function _setupInitialToys() {
+    try {
+        const collection = await dbService.getCollection('toy')
+        const count = await collection.countDocuments()
+
+        if (count === 0) {
+            await collection.insertMany(demoToysData)
+            loggerService.info('Initial toys successfully added to the database.')
+        } else {
+            loggerService.info('Toy collection is already populated.')
+        }
+    } catch (err) {
+        loggerService.error('Failed to set up initial toys:', err)
+        throw err
+    }
+}
+
+async function connectAndSetup() {
+    await _setupInitialToys()
 }
