@@ -28,3 +28,25 @@
 12.9.2025, 17:09:50 - INFO - server.js loaded... 
 12.9.2025, 17:09:50 - INFO - Server listening on port http://127.0.0.1:3030/ 
 12.9.2025, 17:09:50 - INFO - Initial toys successfully added to the database. 
+13.9.2025, 21:05:07 - INFO - server.js loaded... 
+13.9.2025, 21:05:07 - INFO - Server listening on port http://127.0.0.1:3030/ 
+13.9.2025, 21:05:07 - INFO - Toy collection is already populated. 
+13.9.2025, 23:45:31 - DEBUG - auth.service - login with username: lioz 
+13.9.2025, 23:45:31 - INFO - User login: [object Object] 
+13.9.2025, 23:45:31 - ERROR - Failed to Login TypeError: argument name is invalid 
+13.9.2025, 23:45:54 - DEBUG - auth.service - login with username: lioz 
+13.9.2025, 23:45:54 - ERROR - Failed to Login Error: Invalid username or password 
+13.9.2025, 23:46:02 - DEBUG - auth.service - login with username: lioz 
+13.9.2025, 23:46:02 - INFO - User login: [object Object] 
+13.9.2025, 23:46:02 - ERROR - Failed to Login TypeError: argument name is invalid 
+13.9.2025, 23:56:06 - INFO - server.js loaded... 
+13.9.2025, 23:56:07 - INFO - Server listening on port http://127.0.0.1:3030/ 
+13.9.2025, 23:56:07 - INFO - Toy collection is already populated. 
+13.9.2025, 23:56:18 - DEBUG - auth.service - login with username: lioz 
+13.9.2025, 23:56:18 - INFO - User login: [object Object] 
+13.9.2025, 23:57:27 - DEBUG - auth.service - signup with username: yo, fullname: yo 
+13.9.2025, 23:57:27 - DEBUG - auth.route - new account created: {"username":"yo","password":"$2b$10$GY1w/8egwtaFdIHx4RYuAuCm/xGZabBgvov5Ab86b9DRdy0gQZalO","fullname":"yo","isAdmin":false,"_id":"68c5dab72e36b02ecbe282ba"} 
+13.9.2025, 23:57:27 - DEBUG - auth.service - login with username: yo 
+13.9.2025, 23:57:58 - WARN - yoattempted to perform admin action 
+13.9.2025, 23:58:06 - DEBUG - auth.service - login with username: lioz 
+13.9.2025, 23:58:07 - INFO - User login: [object Object] 
