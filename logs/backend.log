@@ -50,3 +50,9 @@
 13.9.2025, 23:57:58 - WARN - yoattempted to perform admin action 
 13.9.2025, 23:58:06 - DEBUG - auth.service - login with username: lioz 
 13.9.2025, 23:58:07 - INFO - User login: [object Object] 
+19.9.2025, 15:13:02 - INFO - server.js loaded... 
+19.9.2025, 15:13:02 - INFO - Server listening on port http://127.0.0.1:3030/ 
+19.9.2025, 15:13:03 - INFO - Toy collection is already populated. 
+19.9.2025, 15:13:37 - INFO - server.js loaded... 
+19.9.2025, 15:13:37 - INFO - Server listening on port http://127.0.0.1:3030/ 
+19.9.2025, 15:13:37 - INFO - Toy collection is already populated. 
