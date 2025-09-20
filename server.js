@@ -30,10 +30,15 @@ import { authRoutes } from './api/auth/auth.routes.js'
 import { userRoutes } from './api/user/user.routes.js'
 import { toyRoutes } from './api/toys/toy.routes.js'
 import { toyService } from './api/toys/toy.service.js'
+import { reviewRoutes } from './api/review/review.routes.js'
+import { setupAsyncLocalStorage } from './middlewares/setupAls.middleware.js'
+
+app.all('*', setupAsyncLocalStorage)
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/toy', toyRoutes)
+app.use('/api/review', reviewRoutes)
 
 app.get('/*all', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
