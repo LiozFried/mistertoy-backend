@@ -1,4 +1,4 @@
-import { Collection, ObjectId } from 'mongodb'
+import { ObjectId } from 'mongodb'
 
 import { asyncLocalStorage } from '../../services/als.service.js'
 import { dbService } from '../../services/db.service.js'
