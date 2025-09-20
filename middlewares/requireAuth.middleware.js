@@ -23,7 +23,7 @@ export function requireAdmin(req, res, next) {
 
     if (!loggedinUser) return res.status(401).send('Not Authenticated')
     if (!loggedinUser.isAdmin) {
-        logger.warn(loggedinUser.fullname + 'attempted to perform admin action')
+        loggerService.warn(loggedinUser.fullname + 'attempted to perform admin action')
         res.status(403).end('Not Authorized')
         return
     }
