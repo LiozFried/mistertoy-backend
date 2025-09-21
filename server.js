@@ -33,14 +33,14 @@ import { toyService } from './api/toys/toy.service.js'
 import { reviewRoutes } from './api/review/review.routes.js'
 import { setupAsyncLocalStorage } from './middlewares/setupAls.middleware.js'
 
-app.all('*', setupAsyncLocalStorage)
+app.use(setupAsyncLocalStorage)
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/toy', toyRoutes)
 app.use('/api/review', reviewRoutes)
 
-app.get('/*all', (req, res) => {
+app.get(/^(?!.*api).*/, (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
 })
 
